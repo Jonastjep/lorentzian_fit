@@ -1,14 +1,12 @@
 clear
 
 %% Loading data
-filename = 'synthetic_S11_6_peaks_2025_07_07';
 
-% full .mat datafile filepath
-filepath = append('..\Data\', filename,'.mat');
+filename = 'synthetic_S11_6_peaks_2025_07_07.mat'
 
+filepath = append('..\Data\', filename);
 % Synthetic data loading in case of need
 load(filepath);
-
 % Real NEMS data loading
 % [f,mag_db,mag_lin,phase_deg,phase_rad] = aafunc_real_data_import(filepath);
 
@@ -140,5 +138,6 @@ datestr = string(date);
 
 filename = sprintf('../Fits/%s_S11_fit_%d_peaks_%s',filename,num_peaks,datestr);
 
+saveas(gcf,append(filename,'.png'))
 savefig(append(filename,'.fig'))
 save(append(filename,'.mat'),'S11','mag_lin','mag_db','phase_deg','phase_rad');

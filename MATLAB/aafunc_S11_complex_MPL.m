@@ -1,4 +1,4 @@
-function S11 = S11_complex_MPL(params, f)
+function S11 = aafunc_S11_complex_MPL(params, f)
 % params: [f0_1, k_int_1, k_ext_1, ..., f0_N, k_int_N, k_ext_N]
     S11 = -1 * ones(size(f)); % baseline reflection
     N = length(params)/3;
@@ -9,6 +9,6 @@ function S11 = S11_complex_MPL(params, f)
 
         p = [f0,k_int,k_ext];
 
-        S11 = S11 - S11_complex_SPL(p,f);
+        S11 = S11 - aafunc_S11_complex_SPL(p,f);
     end
 end
